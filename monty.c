@@ -1,5 +1,6 @@
 #include "monty.h"
 char **commands;
+stack_t **stack;
 /**
  * main - entry point to the monty program
  * @argc: The number of args
@@ -8,14 +9,12 @@ char **commands;
  */
 int main(int argc, char *argv[])
 {
-	char *filename;
-	char *line_ptr;
+	char *filename = NULL;
+	char *line_ptr = NULL;
 	char **instructions;
 	int i;
 	void (*function_ptr)(stack_t **stack, unsigned int line_number);
 	stack_t **stack = NULL;
-
-	(void)stack;
 
 	if (argc != 2)
 	{
@@ -28,7 +27,7 @@ int main(int argc, char *argv[])
 		return (0);
 	}
 	filename = argv[1];
-	line_ptr = read_textfile(filename, strlen(filename));
+	line_ptr = read_textfile(filename, BUFFER_SIZE);
 	if (line_ptr == NULL)
 	{
 		dprintf(2, "Empty file\n");
@@ -63,5 +62,6 @@ int main(int argc, char *argv[])
 		i++;
 	}
 	free_array(instructions);
+	free_array(commands);
 	return (0);
 }
