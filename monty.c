@@ -14,6 +14,8 @@ int main(int argc, char *argv[])
 	void (*function_ptr)(stack_t **stack, unsigned int line_number);
 	stack_t **stack = NULL;
 
+	(void)stack;
+
 	if (argc != 2)
 	{
 		dprintf(2, "USAGE: monty file\n");
@@ -47,7 +49,7 @@ int main(int argc, char *argv[])
 			dprintf(2, "error tokenizing instructions[%d]\n", i);
 			continue;
 		}
-		function_ptr = get_op_func(commands[0]);
+		function_ptr = get_op_fun(commands[0]);
 		if (function_ptr == NULL)
 		{
 			dprintf(2, "L<%d>: unknown instruction <%s>\n", i, commands[0]);
