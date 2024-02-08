@@ -14,7 +14,8 @@ int main(int argc, char *argv[])
 	char **instructions;
 	int i;
 	void (*function_ptr)(stack_t **stack, unsigned int line_number);
-	stack_t **stack = NULL;
+	
+	stack = NULL;
 
 	if (argc != 2)
 	{
