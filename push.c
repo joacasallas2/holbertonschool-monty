@@ -14,7 +14,7 @@ void push(stack_t **stack, unsigned int line_number)
 	new = malloc(sizeof(new));
 	if (new == NULL)
 	{
-		return (NULL);
+		return;
 	}
 	new->n = atoi(commands[1]);
 	new->next = *stack;
