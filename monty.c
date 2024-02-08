@@ -1,4 +1,5 @@
 #include "monty.h"
+char **commands;
 /**
  * main - entry point to the monty program
  * @argc: The number of args
@@ -9,7 +10,7 @@ int main(int argc, char *argv[])
 {
 	char *filename;
 	char *line_ptr;
-	char **instructions, **commands;
+	char **instructions;
 	int i;
 	void (*function_ptr)(stack_t **stack, unsigned int line_number);
 	stack_t **stack = NULL;
@@ -57,6 +58,7 @@ int main(int argc, char *argv[])
 			free_array(commands);
 			exit(EXIT_FAILURE);
 		}
+		function_ptr(stack, i);
 		free_array(commands);
 		i++;
 	}
