@@ -24,6 +24,9 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 
+extern stack_t **stack;
+extern char **commands;
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -34,15 +37,15 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-int push(stack_t **stack, unsigned int line_number);
-int pall(stack_t **stack, unsigned int line_number);
 char *read_textfile(const char *filename, size_t letters);
-int (*get_op_func(char *operation))(stack_t **stack, unsigned int line_number);
 char **tokenizer(char *line_ptr, char *delim);
+void (*get_op_fun(char *s))(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void push(stack_t **stack, unsigned int line_number);
 void free_array(char **array);
 
 #endif
