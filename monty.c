@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 	char *filename = NULL;
 	char *line_ptr = NULL;
 	char **instructions;
-	int i;
+	int i = 0;
 	void (*function_ptr)(stack_t **stack, unsigned int line_number);
 	
 	stack = NULL;
@@ -39,16 +39,16 @@ int main(int argc, char *argv[])
 	if (instructions == NULL)
 	{
 		dprintf(2, "error tokenizing line_ptr\n");
-		return (0);
+		exit (EXIT_FAILURE);
 	}
 	while (instructions[i])
 	{
 		commands = tokenizer(instructions[i], " ");
-		free(instructions[i]);
 		if (commands == NULL)
 		{
+			free_array(instructions);
 			dprintf(2, "error tokenizing instructions[%d]\n", i);
-			continue;
+			exit (EXIT_FAILURE);
 		}
 		function_ptr = get_op_fun(commands[0]);
 		if (function_ptr == NULL)
@@ -63,6 +63,5 @@ int main(int argc, char *argv[])
 		i++;
 	}
 	free_array(instructions);
-	free_array(commands);
 	return (0);
 }

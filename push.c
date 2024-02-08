@@ -3,7 +3,7 @@
  * push - adds a new node at the beginning of a linked list
  * @stack: Pointer to the linked list
  * @n: data in the new node
- * Return: the address of the new element, or NULL if it failed
+ * Return: Nothing
  */
 void push(stack_t **stack, unsigned int line_number)
 {
@@ -17,6 +17,7 @@ void push(stack_t **stack, unsigned int line_number)
 		return;
 	}
 	new->n = atoi(commands[1]);
+	printf("new->n = %d\n", new->n);
 	new->next = *stack;
 	new->prev = NULL;
 	if (*stack != NULL)

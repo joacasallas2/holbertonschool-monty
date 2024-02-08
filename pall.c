@@ -2,7 +2,7 @@
 /**
  * pall - function that prints all the elements of a linked list.
  * @stack: Double linked list
- * Return: The number of nodes
+ * Return: Nothing
  */
 void pall(stack_t **stack, unsigned int line_number)
 {

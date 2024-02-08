@@ -16,18 +16,16 @@ char **tokenizer(char *line_ptr, char *delim)
 	buffer = malloc(sizeof(char *) * 1024);
 	if (buffer == NULL)
 	{
-		free(line_ptr);
 		dprintf(2, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
+		return (NULL);
 	}
 	/* split the input line into tokens.*/
 	line_ptr_copy = strdup(line_ptr);
 	if (line_ptr_copy == NULL)
 	{
-		free(line_ptr);
 		free(buffer);
 		dprintf(2, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
+		return (NULL);
 	}
 	token = strtok(line_ptr_copy, delim);
 	while (token != NULL)
@@ -42,9 +40,8 @@ char **tokenizer(char *line_ptr, char *delim)
 				j++;
 			}
 			free(buffer);
-			free(line_ptr);
 			dprintf(2, "Error: malloc failed\n");
-			exit(EXIT_FAILURE);
+			return (NULL);
 		}
 		token = strtok(NULL, delim);
 		i++;
