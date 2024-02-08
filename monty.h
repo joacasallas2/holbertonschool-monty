@@ -34,14 +34,14 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-	char *opcode;
-	int (*f)(stack_t **stack, int n, unsigned int line_number);
+        char *opcode;
+        void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-int push(stack_t **stack, int n, unsigned int line_number);
-int pall(stack_t **stack, int n, unsigned int line_number);
+int push(stack_t **stack, unsigned int line_number);
+int pall(stack_t **stack, unsigned int line_number);
 char *read_textfile(const char *filename, size_t letters);
-int (*get_op_func(char *operation))(stack_t **stack, int n, unsigned int line_number);
+int (*get_op_func(char *operation))(stack_t **stack, unsigned int line_number);
 char **tokenizer(char *line_ptr, char *delim);
 void free_array(char **array);
 
