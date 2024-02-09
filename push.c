@@ -9,21 +9,19 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new;
 
-	(void)line_number;
-
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
 		return;
 	}
-	if (commands[1] == NULL)
+	if ((commands[1] == NULL))
 	{
-		new->n = 0;
+		dprintf(2, "L<%d>: usage: push integer\n", line_number);
+		free_array(instructions);
+		free_array(commands);
+		exit(EXIT_FAILURE);
 	}
-	else
-	{
-		new->n = atoi(commands[1]);
-	}
+	new->n = atoi(commands[1]);
 	new->next = *stack;
 	new->prev = NULL;
 	*stack = new;

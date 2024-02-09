@@ -1,6 +1,8 @@
 #include "monty.h"
 char **commands;
+char **instructions;
 stack_t **stack;
+unsigned int line_number;
 /**
  * main - entry point to the monty program
  * @argc: The number of args
@@ -11,7 +13,6 @@ int main(int argc, char *argv[])
 {
 	char *filename = NULL;
 	char *line_ptr = NULL;
-	char **instructions;
 	int i = 0;
 	void (*function_ptr)(stack_t **stack, unsigned int line_number);
 
@@ -48,6 +49,7 @@ int main(int argc, char *argv[])
 	}
 	while (instructions[i])
 	{
+		line_number = i;
 		commands = tokenizer(instructions[i], " ");
 		if (commands == NULL)
 		{

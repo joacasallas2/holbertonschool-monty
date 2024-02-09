@@ -28,6 +28,7 @@ typedef struct stack_s
 
 extern stack_t **stack;
 extern char **commands;
+extern char **instructions;
 
 /**
  * struct instruction_s - opcode and its function
