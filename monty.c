@@ -15,8 +15,6 @@ int main(int argc, char *argv[])
 	int i = 0;
 	void (*function_ptr)(stack_t **stack, unsigned int line_number);
 
-	stack = malloc(sizeof(stack_t) * BUFFER_SIZE);
-
 	if (argc != 2)
 	{
 		dprintf(2, "USAGE: monty file\n");
@@ -40,6 +38,13 @@ int main(int argc, char *argv[])
 	{
 		dprintf(2, "error tokenizing line_ptr\n");
 		exit(EXIT_FAILURE);
+	}
+	stack = malloc(sizeof(stack_t *));
+	if (stack == NULL)
+	{
+		dprintf(2, "error malloc stack\n");
+		free_array(instructions);
+		return EXIT_FAILURE;
 	}
 	while (instructions[i])
 	{
