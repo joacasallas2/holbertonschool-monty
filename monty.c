@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 	char **instructions;
 	int i = 0;
 	void (*function_ptr)(stack_t **stack, unsigned int line_number);
-	
+
 	stack = malloc(sizeof(stack_t) * BUFFER_SIZE);
 
 	if (argc != 2)
@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 	if (instructions == NULL)
 	{
 		dprintf(2, "error tokenizing line_ptr\n");
-		exit (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 	while (instructions[i])
 	{
@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
 		{
 			free_array(instructions);
 			dprintf(2, "error tokenizing instructions[%d]\n", i);
-			exit (EXIT_FAILURE);
+			exit(EXIT_FAILURE);
 		}
 		function_ptr = get_op_fun(commands[0]);
 		if (function_ptr == NULL)

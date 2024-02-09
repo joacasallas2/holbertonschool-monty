@@ -2,7 +2,7 @@
 /**
  * push - adds a new node at the beginning of a linked list
  * @stack: Pointer to the linked list
- * @n: data in the new node
+ * @line_number: ignored variable
  * Return: Nothing
  */
 void push(stack_t **stack, unsigned int line_number)
