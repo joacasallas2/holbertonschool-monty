@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 	int i = 0;
 	void (*function_ptr)(stack_t **stack, unsigned int line_number);
 	
-	stack = NULL;
+	stack = malloc(sizeof(stack_t) * BUFFER_SIZE);
 
 	if (argc != 2)
 	{

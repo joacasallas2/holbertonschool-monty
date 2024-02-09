@@ -17,7 +17,6 @@ void push(stack_t **stack, unsigned int line_number)
 		return;
 	}
 	new->n = atoi(commands[1]);
-	printf("new->n = %d\n", new->n);
 	new->next = *stack;
 	new->prev = NULL;
 	if (*stack != NULL)
