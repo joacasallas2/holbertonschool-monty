@@ -16,7 +16,14 @@ void push(stack_t **stack, unsigned int line_number)
 	{
 		return;
 	}
-	new->n = atoi(commands[1]);
+	if (commands[i] == NULL)
+	{
+		new->n = 0;
+	}
+	else
+	{
+		new->n = atoi(commands[1]);
+	}
 	new->next = *stack;
 	new->prev = NULL;
 	if (*stack != NULL)
