@@ -16,7 +16,7 @@ void push(stack_t **stack, unsigned int line_number)
 	{
 		return;
 	}
-	if (commands[i] == NULL)
+	if (commands[1] == NULL)
 	{
 		new->n = 0;
 	}
