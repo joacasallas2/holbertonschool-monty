@@ -54,6 +54,7 @@ int main(int argc, char *argv[])
 		if (commands == NULL)
 		{
 			free_array(instructions);
+			free_list(stack);
 			dprintf(2, "error tokenizing instructions[%d]\n", i);
 			exit(EXIT_FAILURE);
 		}
@@ -63,6 +64,7 @@ int main(int argc, char *argv[])
 			dprintf(2, "L<%d>: unknown instruction <%s>\n", i, commands[0]);
 			free_array(instructions);
 			free_array(commands);
+			free_list(stack);
 			exit(EXIT_FAILURE);
 		}
 		function_ptr(stack, i);
