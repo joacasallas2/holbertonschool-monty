@@ -9,11 +9,11 @@ void free_list(stack_t **stack)
 	stack_t *temp;
 	int i = 0;
 
-	if (stack == NULL && *stack == NULL)
+	if (stack == NULL || *stack == NULL)
 	{
 		return;
 	}
-	while (i < 3)
+	while (*stack)
 	{
 		temp = *stack;
 		*stack = (*stack)->next;
