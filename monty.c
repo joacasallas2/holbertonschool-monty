@@ -47,6 +47,7 @@ int main(int argc, char *argv[])
 		free_array(instructions);
 		return EXIT_FAILURE;
 	}
+	*stack = NULL;
 	while (instructions[i])
 	{
 		line_number = i;
