@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 	{
 		dprintf(2, "error malloc stack\n");
 		free_array(instructions);
-		return EXIT_FAILURE;
+		return (EXIT_FAILURE);
 	}
 	*stack = NULL;
 	while (instructions[i])

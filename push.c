@@ -15,7 +15,7 @@ void push(stack_t **stack, unsigned int line_number)
 	{
 		return;
 	}
-	if ((commands[1] == NULL))
+	if (commands[1] == NULL)
 	{
 		dprintf(2, "L<%d>: usage: push integer\n", line_number);
 		free_array(instructions);
