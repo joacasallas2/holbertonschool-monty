@@ -70,5 +70,6 @@ int main(int argc, char *argv[])
 		i++;
 	}
 	free_array(instructions);
+	free_list(stack);
 	return (0);
 }

@@ -8,6 +8,7 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new;
+	int value;
 
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
@@ -19,9 +20,19 @@ void push(stack_t **stack, unsigned int line_number)
 		dprintf(2, "L<%d>: usage: push integer\n", line_number);
 		free_array(instructions);
 		free_array(commands);
+		free(new);
 		exit(EXIT_FAILURE);
 	}
-	new->n = atoi(commands[1]);
+	value = atoi(commands[1]);
+	if (value == 0 && commands[1][0] != '0')
+	{
+		dprintf(2, "L<%d>: usage: push integer\n", line_number);
+		free_array(instructions);
+		free_array(commands);
+		free(new);
+		exit(EXIT_FAILURE);
+	}
+	new->n = value;
 	new->next = *stack;
 	new->prev = NULL;
 	*stack = new;
