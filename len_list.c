@@ -8,8 +8,6 @@ size_t len_list(stack_t **stack)
 {
 	size_t nodes = 0;
 
-	printf("uno\n");
-
 	while (*stack)
 	{
 		nodes++;
