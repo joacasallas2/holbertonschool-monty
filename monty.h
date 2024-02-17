@@ -53,5 +53,6 @@ void free_array(char **array);
 size_t len_list(stack_t **stack);
 void free_list(stack_t **stack);
 void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
 
 #endif
