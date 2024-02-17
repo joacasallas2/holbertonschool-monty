@@ -12,11 +12,13 @@ void (*get_op_fun(char *s))(stack_t **stack, unsigned int line_number)
 	    {"pint", pint},
 	    {"pop", pop},
 	    {"add", add},
+	    {"nop", nop},
+	    {"sub", sub},
 	};
 	int i;
 
 	i = 0;
-	while (i < 5)
+	while (i < 7)
 	{
 		if (strcmp(s, ops[i].opcode) == 0)
 		{
